@@ -1,11 +1,15 @@
 package com.mycompany.carracesimulation;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
+import javafx.animation.SequentialTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 
 public class WelcomeController {
     private String[] images = {
@@ -50,7 +54,31 @@ public class WelcomeController {
     void startSlideShow(MouseEvent event) { 
         welcomeMessage.setVisible(false);
         
+        SequentialTransition slideShow = new SequentialTransition();
         
+        ImageView[] cars = {car1, car2, car3,car4};
+        
+        for (ImageView car : cars) { 
+            car.setOpacity(0);
+            car.setVisible(true);
+            
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), car);
+            fadeIn.setFromValue(0);
+            fadeIn.setToValue(1);
+            
+            PauseTransition pause1 = new PauseTransition(Duration.seconds(2));
+                        
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), car);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+            
+            SequentialTransition slideTransition = new SequentialTransition(
+                    fadeIn, pause1, fadeOut
+            );
+            
+            slideShow.getChildren().add(slideTransition);
+        }
+        
+        slideShow.play();
     }
-
 }
