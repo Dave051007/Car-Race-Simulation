@@ -49,7 +49,7 @@ public class WelcomeController {
     }
 
     @FXML
-    void startSlideShow(MouseEvent event) { 
+    void startSlideShow(MouseEvent event) {
         welcomeMessage.setVisible(false);
         
         SequentialTransition slideShow = new SequentialTransition();
