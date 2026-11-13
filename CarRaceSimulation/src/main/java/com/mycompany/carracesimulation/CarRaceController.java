@@ -74,7 +74,11 @@ public class CarRaceController {
 
     @FXML
     void pauseAnim(ActionEvent event) {
-
+        for (Car car : cars) {
+            if (car.getAnimation() != null) {
+                car.getAnimation().pause();
+            }
+        }
     }
 
     @FXML
