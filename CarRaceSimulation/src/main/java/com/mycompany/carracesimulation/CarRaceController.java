@@ -84,6 +84,20 @@ public class CarRaceController {
 
     @FXML
     void startAnim(ActionEvent event) {
+        ParallelTransition carRaceAnimation = new ParallelTransition();
         
+        int X = 630;
+        
+        for (Car car : cars) {
+            car.generateSpeed();
+            
+            double speed = car.getSpeed();
+            car.createAnimation(speed, X);
+            car.getAnimation().setRate(rate);
+            
+            carRaceAnimation.getChildren().add(car.getAnimation());
+        }
+        
+        carRaceAnimation.play();
     }
 }
