@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.carracesimulation.CarRaceController">
    <top>
       <Pane fx:id="raceView" prefHeight="239.0" prefWidth="841.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -136,7 +136,7 @@
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="14.0" />
                </font></Label>
-            <Slider fx:id="animiationSpeedSlider" layoutX="157.0" layoutY="116.0" prefHeight="14.0" prefWidth="182.0" />
+            <Slider fx:id="animiationSpeedSlider" layoutX="157.0" layoutY="116.0" max="5.0" min="1.0" prefHeight="14.0" prefWidth="182.0" value="1.0" />
          </children>
       </Pane>
    </center>
@@ -209,7 +209,7 @@
                   <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <Label layoutX="2.0" layoutY="55.0" prefHeight="17.0" prefWidth="84.0" text="Final Result:s:" />
+            <Label layoutX="2.0" layoutY="55.0" prefHeight="17.0" prefWidth="84.0" text="..." />
             <ImageView fitHeight="138.0" fitWidth="90.0" layoutX="329.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>

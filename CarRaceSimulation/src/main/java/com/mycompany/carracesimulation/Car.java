@@ -74,6 +74,4 @@ public class Car {
     public TranslateTransition getAnimation() {
         return animation;
     }
-    
-    
 }
