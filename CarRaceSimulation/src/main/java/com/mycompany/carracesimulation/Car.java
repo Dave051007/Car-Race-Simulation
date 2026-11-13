@@ -45,13 +45,12 @@ public class Car {
      * @param X new x position of Car object
      * @param Y new y position of Car object
      */
-    public void createAnimation(double speed, int X, int Y) {
+    public void createAnimation(double speed, int X) {
         TranslateTransition translateAnimation = new TranslateTransition();
         
-        animation.setNode(pane);
-        animation.setToX(X);
-        animation.setToY(Y);
-        animation.setDuration(Duration.seconds(speed));
+        translateAnimation.setNode(pane);
+        translateAnimation.setToX(X);
+        translateAnimation.setDuration(Duration.seconds(speed));
         
         animation = translateAnimation;
     }
