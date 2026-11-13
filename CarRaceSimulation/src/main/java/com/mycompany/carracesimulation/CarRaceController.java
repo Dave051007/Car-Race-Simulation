@@ -45,6 +45,7 @@ public class CarRaceController {
     
     private Car[] cars;
     private double rate = 1.0;
+    ParallelTransition carRaceAnimation = new ParallelTransition();
     
     @FXML
     void initialize() {
@@ -74,22 +75,20 @@ public class CarRaceController {
 
     @FXML
     void pauseAnim(ActionEvent event) {
-        for (Car car : cars) {
-            if (car.getAnimation() != null) {
-                car.getAnimation().pause();
-            }
-        }
+        carRaceAnimation.pause();
     }
 
     @FXML
     void resetAnim(ActionEvent event) {
-
+        carRaceAnimation.stop();
+        
+        for (Car car : cars) {
+            car.getPane().setTranslateX(0);
+        }
     }
 
     @FXML
     void startAnim(ActionEvent event) {
-        ParallelTransition carRaceAnimation = new ParallelTransition();
-        
         int X = 630;
         
         for (Car car : cars) {
