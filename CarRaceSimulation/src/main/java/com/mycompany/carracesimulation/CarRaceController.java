@@ -1,5 +1,7 @@
 package com.mycompany.carracesimulation;
 
+import javafx.animation.ParallelTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -40,18 +42,34 @@ public class CarRaceController {
     @FXML
     private Button startButton;
     
-    Car[] cars = {
-        new Car(Color.BLUE, 56, car1),
-        new Car(Color.YELLOW, 78, car2),
-        new Car(Color.RED, 11, car3),
-        new Car(Color.GREEN, 98, car4),
-    };
+    
+    private Car[] cars;
+    private double rate = 1.0;
     
     @FXML
     void initialize() {
+        cars = new Car[] {
+            new Car(Color.BLUE, 56, car1),
+            new Car(Color.YELLOW, 78, car2),
+            new Car(Color.RED, 11, car3),
+            new Car(Color.GREEN, 98, car4),
+        };
+        
         animationSpeedLabel.textProperty().bind(
             animationSpeedSlider.valueProperty().asString("%.1fx")
         );
+        
+        animationSpeedSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
+           rate = newVal.doubleValue();
+           
+           for (Car car : cars) {
+               TranslateTransition transition = car.getAnimation();
+               
+               if (transition != null) {
+                   transition.setRate(rate);
+               }
+           }
+        });
     }
 
     @FXML
@@ -66,6 +84,6 @@ public class CarRaceController {
 
     @FXML
     void startAnim(ActionEvent event) {
-
+        
     }
 }
