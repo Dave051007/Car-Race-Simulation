@@ -21,12 +21,12 @@ public class Car {
     private double speed;
     private TranslateTransition animation;
 
-    public Car(Color color, int num, Pane pane, double speed, TranslateTransition animation) {
+    public Car(Color color, int num, Pane pane) {
         this.color = color;
         this.num = num;
         this.pane = pane;
-        this.speed = speed;
-        this.animation = animation;
+        this.speed = -1;
+        this.animation = null;
     }
     
     /**
