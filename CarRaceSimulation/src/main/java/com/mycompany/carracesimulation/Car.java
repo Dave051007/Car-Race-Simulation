@@ -18,5 +18,14 @@ public class Car {
     private Pane pane;
     private double speed;
     private TranslateTransition animation;
+
+    public Car(Color color, int num, Pane pane, double speed, TranslateTransition animation) {
+        this.color = color;
+        this.num = num;
+        this.pane = pane;
+        this.speed = speed;
+        this.animation = animation;
+    }
+    
     
 }
