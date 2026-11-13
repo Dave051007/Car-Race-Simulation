@@ -26,6 +26,26 @@ public class Car {
         this.speed = speed;
         this.animation = animation;
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public Pane getPane() {
+        return pane;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public TranslateTransition getAnimation() {
+        return animation;
+    }
     
     
 }
