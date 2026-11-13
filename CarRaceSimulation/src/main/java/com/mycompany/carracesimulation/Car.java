@@ -8,6 +8,7 @@ import java.util.Random;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 /**
  *
@@ -34,7 +35,24 @@ public class Car {
     public void generateSpeed() {
         Random rand = new Random();
         double randomNum = rand.nextDouble(5, 11);
+        
         speed = randomNum;
+    }
+    
+    /**
+     * Generates the animation of a car
+     * @param speed the duration of the animation
+     * @param X new x position of Car object
+     * @param Y new y position of Car object
+     */
+    public void createAnimation(double speed, int X, int Y) {
+        TranslateTransition translateAnimation = new TranslateTransition();
+        
+        animation.setToX(X);
+        animation.setToY(Y);
+        animation.setDuration(Duration.seconds(speed));
+        
+        animation = translateAnimation;
     }
 
     public Color getColor() {
