@@ -34,7 +34,7 @@ public class Car {
      */
     public void generateSpeed() {
         Random rand = new Random();
-        double randomNum = rand.nextDouble(5, 11);
+        double randomNum = rand.nextDouble() * (10.0 - 5.0) + 5.0;
         
         speed = randomNum;
     }
@@ -48,6 +48,7 @@ public class Car {
     public void createAnimation(double speed, int X, int Y) {
         TranslateTransition translateAnimation = new TranslateTransition();
         
+        animation.setNode(pane);
         animation.setToX(X);
         animation.setToY(Y);
         animation.setDuration(Duration.seconds(speed));
