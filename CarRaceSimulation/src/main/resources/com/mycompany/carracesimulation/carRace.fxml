@@ -99,15 +99,15 @@
                </children></Pane>
             <Pane fx:id="car4" layoutX="66.0" layoutY="182.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="33.0" layoutX="17.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff33" height="33.0" layoutX="17.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
                </children></Pane>
             <Pane fx:id="car3" layoutX="66.0" layoutY="126.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="33.0" layoutX="17.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="33.0" layoutX="17.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
                </children></Pane>
             <Pane fx:id="car2" layoutX="66.0" layoutY="70.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="33.0" layoutX="17.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e7fc2b" height="33.0" layoutX="17.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
                </children></Pane>
          </children>
       </Pane>
@@ -146,14 +146,14 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7f7f7" height="195.0" layoutY="1.0" stroke="#40a5c1" strokeType="INSIDE" width="422.0" />
             <ToolBar layoutX="2.0" layoutY="4.0" prefHeight="45.0" prefWidth="417.0">
                <items>
-                  <ImageView fitHeight="41.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="trophyLogo" fitHeight="41.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" />
                   <VBox prefHeight="31.0" prefWidth="138.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="138.0" text="...">
+                        <Label fx:id="raceFinishedLabel" prefHeight="27.0" prefWidth="138.0" text="...">
                            <font>
                               <Font size="22.0" />
                            </font></Label>
-                        <Label text="...">
+                        <Label fx:id="congratulationLabel" text="...">
                            <font>
                               <Font size="14.0" />
                            </font></Label>
@@ -195,22 +195,22 @@
                         <Font name="Bauhaus 93" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" />
-                  <Label alignment="CENTER" layoutX="79.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" />
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
-                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Label fx:id="firstPlaceNum" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" />
+                  <Label fx:id="secondPlaceNum" alignment="CENTER" layoutX="79.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="thirdPlaceNum" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="fourthPlaceNum" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="firstPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" />
+                  <Label fx:id="secondPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="fourthPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label fx:id="thirdPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Pane fx:id="firstPLaceCar" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
+                  <Pane fx:id="secondPlaceCar" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Pane fx:id="thirdPlaceCar" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Pane fx:id="fourthPlaceCar" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <Label layoutX="2.0" layoutY="55.0" prefHeight="17.0" prefWidth="84.0" text="..." />
-            <ImageView fitHeight="138.0" fitWidth="90.0" layoutX="329.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="raceResultsLabel" layoutX="2.0" layoutY="55.0" prefHeight="17.0" prefWidth="84.0" text="..." />
+            <ImageView fx:id="carRaceFinishedSymbol" fitHeight="138.0" fitWidth="90.0" layoutX="329.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </right>
