@@ -74,4 +74,8 @@ public class Car {
     public TranslateTransition getAnimation() {
         return animation;
     }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
 }

@@ -151,6 +151,14 @@ public class CarRaceController {
             carRaceAnimation.getChildren().add(car.getAnimation());
         }
         
+        for (int i = 0; i < cars.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (cars[i].getSpeed() == cars[j].getSpeed()) {
+                    cars[i].setSpeed(cars[i].getSpeed() + 2);
+                }
+            }
+        }
+        
         carRaceAnimation.play();
         carRaceAnimation.setOnFinished(e -> {
             displayResults();
