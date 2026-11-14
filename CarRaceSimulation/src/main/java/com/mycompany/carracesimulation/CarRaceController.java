@@ -105,10 +105,26 @@ public class CarRaceController {
     @FXML
     void resetAnim(ActionEvent event) {
         carRaceAnimation.stop();
-        
+
+        carRaceAnimation.getChildren().clear();
+
         for (Car car : cars) {
             car.getPane().setTranslateX(0);
         }
+
+        raceFinishedLabel.setText("...");
+        congratulationLabel.setText("...");
+        raceResultsLabel.setText("...");
+        
+        firstPlaceNum.setText("...");
+        secondPlaceNum.setText("...");
+        thirdPlaceNum.setText("...");
+        fourthPlaceNum.setText("...");
+        
+        firstPlaceColor.setText("...");
+        secondPlaceColor.setText("...");
+        thirdPlaceColor.setText("...");
+        fourthPlaceColor.setText("...");
     }
 
     @FXML
