@@ -123,26 +123,32 @@ public class CarRaceController {
         
         int X = 630;
         
-        for (Car car : cars) {
-            car.generateSpeed();
-            
-            double speed = car.getSpeed();
-            car.createAnimation(speed, X);
-            
-            carRaceAnimation.getChildren().add(car.getAnimation());
-        }
-        
-        // add 2 if speed is the same
         for (int i = 0; i < cars.length; i++) {
-            for (int j = 0; j < i; j++) {
-                if (cars[i].getSpeed() == cars[j].getSpeed()) {
-                    cars[i].setSpeed(cars[i].getSpeed() + 5);
+            cars[i].generateSpeed(); 
+            
+            // generate unique speed for each car
+            boolean duplicate;
+            do {
+                duplicate = false;
+ 
+                for (int j = 0; j < i; j++) {
+                    if (cars[i].getSpeed() == cars[j].getSpeed()) {
+                        cars[i].setSpeed(cars[i].getSpeed() + 5);
+                        duplicate = true;
+                        break;
+                    }
                 }
-            }
+
+            } while (duplicate);
+            
+            double speed = cars[i].getSpeed();
+            cars[i].createAnimation(speed, X);
+            carRaceAnimation.getChildren().add(cars[i].getAnimation());
         }
         
         carRaceAnimation.setRate(rate);
         carRaceAnimation.play();
+        
         carRaceAnimation.setOnFinished(e -> {
             displayResults();
         });
