@@ -113,6 +113,14 @@ public class CarRaceController {
 
     @FXML
     void startAnim(ActionEvent event) {
+        // stop and clear previous animation
+        carRaceAnimation.stop();
+        carRaceAnimation.getChildren().clear();
+        
+        for (Car car : cars) {
+            car.getPane().setTranslateX(0);
+        }
+        
         int X = 630;
         
         for (Car car : cars) {
