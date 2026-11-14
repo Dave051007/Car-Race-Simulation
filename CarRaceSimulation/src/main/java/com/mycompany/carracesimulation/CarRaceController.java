@@ -62,9 +62,7 @@ public class CarRaceController {
 
     @FXML
     private ImageView trophyLogo;
-
     
-
     @FXML
     private Label animationSpeedLabel;
 
@@ -112,14 +110,7 @@ public class CarRaceController {
         
         animationSpeedSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
            rate = newVal.doubleValue();
-           
-           for (Car car : cars) {
-               TranslateTransition transition = car.getAnimation();
-               
-               if (transition != null) {
-                   transition.setRate(rate);
-               }
-           }
+           carRaceAnimation.setRate(rate);
         });
     }
 
@@ -146,11 +137,11 @@ public class CarRaceController {
             
             double speed = car.getSpeed();
             car.createAnimation(speed, X);
-            car.getAnimation().setRate(rate);
             
             carRaceAnimation.getChildren().add(car.getAnimation());
         }
         
+        // add 2 if speed is the same
         for (int i = 0; i < cars.length; i++) {
             for (int j = 0; j < i; j++) {
                 if (cars[i].getSpeed() == cars[j].getSpeed()) {
@@ -159,6 +150,7 @@ public class CarRaceController {
             }
         }
         
+        carRaceAnimation.setRate(rate);
         carRaceAnimation.play();
         carRaceAnimation.setOnFinished(e -> {
             displayResults();
