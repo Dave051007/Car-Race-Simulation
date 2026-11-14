@@ -186,13 +186,13 @@ public class CarRaceController {
         double thirdPlaceNumber = sortedCars[2].getNum();
         double fourthPlaceNumber = sortedCars[3].getNum();
         
-        String firstPlaceCol = sortedCars[0].getColor().toString();
-        String secondPlaceCol = sortedCars[1].getColor().toString();
-        String thirdPlaceCol = sortedCars[2].getColor().toString();
-        String fourthPlaceCol = sortedCars[3].getColor().toString();
-        
+        String firstPlaceCol = getColorName(sortedCars[0].getColor());
+        String secondPlaceCol = getColorName(sortedCars[1].getColor());
+        String thirdPlaceCol = getColorName(sortedCars[2].getColor());
+        String fourthPlaceCol = getColorName(sortedCars[3].getColor());
+      
         congratulationLabel.setText("Congratulations! Car #" + firstPlaceNumber + 
-                "(" + firstPlaceCol + ") " + "is the winner!");
+                " (" + firstPlaceCol + ") " + "is the winner!");
         
         raceResultsLabel.setText("Final Results");
         
@@ -205,6 +205,22 @@ public class CarRaceController {
         secondPlaceColor.setText("(" + secondPlaceCol + ")");
         thirdPlaceColor.setText("(" + thirdPlaceCol + ")");
         fourthPlaceColor.setText("(" + fourthPlaceCol + ")");
-      
+    }
+    
+    private String getColorName(Color color) {
+        if (color.equals(Color.BLUE)) {
+            return "BLUE";
+        }
+        else if (color.equals(Color.YELLOW)) {
+            return "YELLOW";
+        }
+        else if (color.equals(Color.RED)) {
+            return "RED";
+        }
+        else if (color.equals(Color.GREEN)) {
+            return "GREEN";
+        }
+
+        return "UNKNOWN";
     }
 }
