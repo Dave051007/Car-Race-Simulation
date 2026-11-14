@@ -1,13 +1,15 @@
 package com.mycompany.carracesimulation;
 
+import java.util.Arrays;
 import javafx.animation.ParallelTransition;
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
@@ -19,16 +21,10 @@ public class CarRaceController {
     private Label congratulationLabel;
 
     @FXML
-    private Pane firstPLaceCar;
-
-    @FXML
     private Label firstPlaceColor;
 
     @FXML
     private Label firstPlaceNum;
-
-    @FXML
-    private Pane fourthPlaceCar;
 
     @FXML
     private Label fourthPlaceColor;
@@ -37,22 +33,16 @@ public class CarRaceController {
     private Label fourthPlaceNum;
 
     @FXML
-    private Button pauseButton;
-
-    @FXML
     private Label raceFinishedLabel;
     
     @FXML
-    private Pane secondPlaceCar;
+    private Label raceResultsLabel;
 
     @FXML
     private Label secondPlaceColor;
 
     @FXML
     private Label secondPlaceNum;
-    
-     @FXML
-    private Pane thirdPlaceCar;
 
     @FXML
     private Label thirdPlaceColor;
@@ -62,6 +52,9 @@ public class CarRaceController {
 
     @FXML
     private ImageView trophyLogo;
+    
+    @FXML
+    private GridPane carRaceLeaderboard;
     
     @FXML
     private Label animationSpeedLabel;
@@ -80,16 +73,6 @@ public class CarRaceController {
 
     @FXML
     private Pane car4;
-    
-    @FXML
-    private Pane raceView;
-
-    @FXML
-    private Button resetButton;
-
-    @FXML
-    private Button startButton;
-    
     
     private Car[] cars;
     private double rate = 1.0;
@@ -145,7 +128,7 @@ public class CarRaceController {
         for (int i = 0; i < cars.length; i++) {
             for (int j = 0; j < i; j++) {
                 if (cars[i].getSpeed() == cars[j].getSpeed()) {
-                    cars[i].setSpeed(cars[i].getSpeed() + 2);
+                    cars[i].setSpeed(cars[i].getSpeed() + 5);
                 }
             }
         }
@@ -158,5 +141,40 @@ public class CarRaceController {
     }
     
     private void displayResults() {
+        raceFinishedLabel.setText("Race Finished!");
+        
+        // make copy of cars array to avoid changing original sorting
+        Car[] sortedCars = Arrays.copyOf(cars, cars.length);
+        
+        // comparator to sort cars based on speed
+        Arrays.sort(sortedCars, (car1, car2) ->
+            Double.compare(car2.getSpeed(), car1.getSpeed())
+        );
+        
+        double firstPlaceNumber = sortedCars[0].getNum();
+        double secondPlaceNumber = sortedCars[1].getNum();
+        double thirdPlaceNumber = sortedCars[2].getNum();
+        double fourthPlaceNumber = sortedCars[3].getNum();
+        
+        String firstPlaceCol = sortedCars[0].getColor().toString();
+        String secondPlaceCol = sortedCars[1].getColor().toString();
+        String thirdPlaceCol = sortedCars[2].getColor().toString();
+        String fourthPlaceCol = sortedCars[3].getColor().toString();
+        
+        congratulationLabel.setText("Congratulations! Car #" + firstPlaceNumber + 
+                "(" + firstPlaceCol + ") " + "is the winner!");
+        
+        raceResultsLabel.setText("Final Results");
+        
+        firstPlaceNum.setText("Car #" + firstPlaceNumber);
+        secondPlaceNum.setText("Car #" + secondPlaceNumber);
+        thirdPlaceNum.setText("Car #" + thirdPlaceNumber);
+        fourthPlaceNum.setText("Car #" + fourthPlaceNumber);
+        
+        firstPlaceColor.setText("(" + firstPlaceCol + ")");
+        secondPlaceColor.setText("(" + secondPlaceCol + ")");
+        thirdPlaceColor.setText("(" + thirdPlaceCol + ")");
+        fourthPlaceColor.setText("(" + fourthPlaceCol + ")");
+      
     }
 }
