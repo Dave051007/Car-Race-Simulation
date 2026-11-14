@@ -7,10 +7,63 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class CarRaceController {
+    @FXML
+    private ImageView carRaceFinishedSymbol;
+
+    @FXML
+    private Label congratulationLabel;
+
+    @FXML
+    private Pane firstPLaceCar;
+
+    @FXML
+    private Label firstPlaceColor;
+
+    @FXML
+    private Label firstPlaceNum;
+
+    @FXML
+    private Pane fourthPlaceCar;
+
+    @FXML
+    private Label fourthPlaceColor;
+
+    @FXML
+    private Label fourthPlaceNum;
+
+    @FXML
+    private Button pauseButton;
+
+    @FXML
+    private Label raceFinishedLabel;
+    
+    @FXML
+    private Pane secondPlaceCar;
+
+    @FXML
+    private Label secondPlaceColor;
+
+    @FXML
+    private Label secondPlaceNum;
+    
+     @FXML
+    private Pane thirdPlaceCar;
+
+    @FXML
+    private Label thirdPlaceColor;
+
+    @FXML
+    private Label thirdPlaceNum;
+
+    @FXML
+    private ImageView trophyLogo;
+
+    
 
     @FXML
     private Label animationSpeedLabel;
@@ -29,10 +82,7 @@ public class CarRaceController {
 
     @FXML
     private Pane car4;
-
-    @FXML
-    private Button pauseButton;
-
+    
     @FXML
     private Pane raceView;
 
@@ -102,5 +152,11 @@ public class CarRaceController {
         }
         
         carRaceAnimation.play();
+        carRaceAnimation.setOnFinished(e -> {
+            displayResults();
+        });
+    }
+    
+    private void displayResults() {
     }
 }
