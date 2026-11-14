@@ -34,7 +34,7 @@ public class Car {
      */
     public void generateSpeed() {
         Random rand = new Random();
-        double randomNum = rand.nextDouble() * (10.0 - 5.0) + 5.0;
+        double randomNum = rand.nextDouble() * (60.0 - 45.0) + 45.0;
         
         speed = randomNum;
     }
