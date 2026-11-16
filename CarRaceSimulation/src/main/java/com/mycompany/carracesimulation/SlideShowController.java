@@ -1,5 +1,6 @@
 package com.mycompany.carracesimulation;
 
+import java.io.IOException;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
@@ -7,9 +8,10 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
-public class WelcomeController {
+public class SlideShowController {
     private String[] images = {
         "/images/image1.png",
         "/images/image2.jpg",
@@ -34,6 +36,9 @@ public class WelcomeController {
     private ImageView welcomeMessage;
     
     @FXML
+    private StackPane imageContainer;
+    
+    @FXML
     void initialize() {
         car1.setImage(new Image(getClass().getResource(images[0]).toExternalForm()));
         car2.setImage(new Image(getClass().getResource(images[1]).toExternalForm()));
@@ -49,7 +54,8 @@ public class WelcomeController {
     }
 
     @FXML
-    void startSlideShow(MouseEvent event) {
+    void startSlideShow(MouseEvent event) { 
+        imageContainer.setOnMouseClicked(null);
         welcomeMessage.setVisible(false);
         
         SequentialTransition slideShow = new SequentialTransition();
@@ -78,5 +84,13 @@ public class WelcomeController {
         }
         
         slideShow.play();
+        
+        slideShow.setOnFinished(e -> {
+            try {
+                App.setRoot("welcome");
+            } catch (IOException ex) {
+                System.getLogger(SlideShowController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+        });
     }
 }
