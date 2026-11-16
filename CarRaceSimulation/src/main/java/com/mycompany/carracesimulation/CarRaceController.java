@@ -178,7 +178,7 @@ public class CarRaceController {
         
         // comparator to sort cars based on speed
         Arrays.sort(sortedCars, (car1, car2) ->
-            Double.compare(car2.getSpeed(), car1.getSpeed())
+            Double.compare(car1.getSpeed(), car2.getSpeed())
         );
         
         double firstPlaceNumber = sortedCars[0].getNum();
