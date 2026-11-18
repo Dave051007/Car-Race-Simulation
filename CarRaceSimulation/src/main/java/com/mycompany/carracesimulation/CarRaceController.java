@@ -1,6 +1,7 @@
 package com.mycompany.carracesimulation;
 
 import java.util.Arrays;
+import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
 import javafx.event.ActionEvent;
@@ -122,7 +123,13 @@ public class CarRaceController {
 
     @FXML
     void pauseAnim(ActionEvent event) {
-        carRaceAnimation.pause();
+        if (carRaceAnimation.getStatus() == Animation.Status.RUNNING) {
+            carRaceAnimation.pause();
+            pauseButton.setText("Resume");
+        } else {
+            carRaceAnimation.play();
+            pauseButton.setText("Pause");
+        }
     }
 
     @FXML
