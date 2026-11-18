@@ -13,11 +13,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.carracesimulation.CarRaceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="853.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.carracesimulation.CarRaceController">
    <top>
       <Pane prefHeight="239.0" prefWidth="841.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -95,19 +96,19 @@
             <Line endX="621.0" endY="-1.52587890625E-5" layoutX="160.0" layoutY="177.0" startX="-94.0" startY="-1.52587890625E-5" stroke="WHITE" style="-fx-stroke-dash-array: 15;" />
             <Pane fx:id="car1" layoutX="66.0" layoutY="14.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="33.0" layoutX="16.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+                  <Polygon fx:id="car1Shape" fill="BLUE" layoutX="48.0" layoutY="33.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
                </children></Pane>
             <Pane fx:id="car4" layoutX="66.0" layoutY="182.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="33.0" layoutX="17.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+                  <Polygon fx:id="car4Shape" fill="GREEN" layoutX="48.0" layoutY="33.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
                </children></Pane>
             <Pane fx:id="car3" layoutX="66.0" layoutY="126.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="33.0" layoutX="17.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+                  <Polygon fx:id="car3Shape" fill="RED" layoutX="48.0" layoutY="33.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
                </children></Pane>
             <Pane fx:id="car2" layoutX="66.0" layoutY="70.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="33.0" layoutX="17.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="57.0" />
+                  <Polygon fx:id="car2Shape" fill="YELLOW" layoutX="48.0" layoutY="33.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
                </children></Pane>
          </children>
       </Pane>
@@ -115,16 +116,16 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7f7f7" height="195.0" layoutX="14.0" stroke="#40a5c1" strokeType="INSIDE" width="383.0" />
-            <Button layoutX="41.0" layoutY="32.0" mnemonicParsing="false" onAction="#startAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: GREEN;" text="Start" textFill="WHITE">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" layoutX="14.0" stroke="#40a5c1" strokeType="INSIDE" width="383.0" />
+            <Button fx:id="startButton" layoutX="41.0" layoutY="32.0" mnemonicParsing="false" onAction="#startAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: GREEN;" text="Start" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="145.0" layoutY="32.0" mnemonicParsing="false" onAction="#pauseAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: BLUE;" text="Pause" textFill="WHITE">
+            <Button fx:id="pauseButton" layoutX="145.0" layoutY="32.0" mnemonicParsing="false" onAction="#pauseAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: BLUE;" text="Pause" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="248.0" layoutY="32.0" mnemonicParsing="false" onAction="#resetAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: RED;" text="Reset" textFill="WHITE">
+            <Button fx:id="resetButton" layoutX="248.0" layoutY="32.0" mnemonicParsing="false" onAction="#resetAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: RED;" text="Reset" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="14.0" />
                </font></Button>
@@ -143,25 +144,25 @@
    <right>
       <Pane prefHeight="203.0" prefWidth="439.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7f7f7" height="195.0" layoutY="1.0" stroke="#40a5c1" strokeType="INSIDE" width="422.0" />
-            <ToolBar layoutX="2.0" layoutY="4.0" prefHeight="45.0" prefWidth="417.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" layoutY="1.0" stroke="#40a5c1" strokeType="INSIDE" width="422.0" />
+            <ToolBar layoutX="2.0" layoutY="4.0" prefHeight="45.0" prefWidth="417.0" style="-fx-background-color: white;">
                <items>
                   <ImageView fx:id="trophyLogo" fitHeight="41.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" />
                   <VBox prefHeight="44.0" prefWidth="346.0">
                      <children>
                         <Label fx:id="raceFinishedLabel" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="138.0" text="...">
                            <font>
-                              <Font size="22.0" />
+                              <Font name="Arial Black" size="12.0" />
                            </font></Label>
                         <Label fx:id="congratulationLabel" maxWidth="1.7976931348623157E308" prefHeight="20.0" text="...">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Arial Black" size="12.0" />
                            </font></Label>
                      </children>
                   </VBox>
                </items>
             </ToolBar>
-            <GridPane fx:id="carRaceLeaderboard" layoutX="2.0" layoutY="72.0" prefHeight="123.0" prefWidth="316.0">
+            <GridPane fx:id="carRaceLeaderboard" layoutX="2.0" layoutY="72.0" prefHeight="123.0" prefWidth="316.0" style="-fx-background-color: white;">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -177,36 +178,63 @@
                <children>
                   <Label style="-fx-background-color: GOLD;" text="1st">
                      <font>
-                        <Font name="Bauhaus 93" size="12.0" />
+                        <Font name="Arial Black" size="12.0" />
                      </font>
                   </Label>
                   <Label style="-fx-background-color: SILVER;" text="2nd" GridPane.rowIndex="1">
                      <font>
-                        <Font name="Bauhaus 93" size="12.0" />
+                        <Font name="Arial Black" size="12.0" />
                      </font>
                   </Label>
                   <Label style="-fx-background-color: #CD7F32;" text="3rd" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Bauhaus 93" size="12.0" />
+                        <Font name="Arial Black" size="12.0" />
                      </font>
                   </Label>
                   <Label text="4th" GridPane.rowIndex="3">
                      <font>
-                        <Font name="Bauhaus 93" size="12.0" />
+                        <Font name="Arial Black" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="firstPlaceNum" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" />
-                  <Label fx:id="secondPlaceNum" alignment="CENTER" layoutX="79.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label fx:id="thirdPlaceNum" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label fx:id="fourthPlaceNum" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label fx:id="firstPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" />
-                  <Label fx:id="secondPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Label fx:id="fourthPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Label fx:id="thirdPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label fx:id="firstPlaceNum" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="secondPlaceNum" alignment="CENTER" layoutX="79.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="thirdPlaceNum" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="fourthPlaceNum" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="firstPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="secondPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="fourthPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="thirdPlaceColor" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="..." GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font></Label>
                </children>
             </GridPane>
-            <Label fx:id="raceResultsLabel" layoutX="2.0" layoutY="55.0" prefHeight="17.0" prefWidth="84.0" text="..." />
-            <ImageView fx:id="carRaceFinishedSymbol" fitHeight="138.0" fitWidth="90.0" layoutX="329.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="raceResultsLabel" layoutX="2.0" layoutY="55.0" prefHeight="17.0" prefWidth="84.0" style="-fx-background-color: white;" text="...">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font></Label>
+            <ImageView fx:id="carRaceFinishedSymbol" fitHeight="91.0" fitWidth="91.0" layoutX="323.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </right>

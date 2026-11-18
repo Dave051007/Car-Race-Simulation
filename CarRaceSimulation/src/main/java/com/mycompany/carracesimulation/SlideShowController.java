@@ -10,6 +10,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class SlideShowController {
     private String[] images = {
@@ -19,8 +21,12 @@ public class SlideShowController {
         "/images/Car4Image.jpg",
         "/images/WelcomeImage.jpg"
     };
+    
+    // Music
+    Media media = new Media(getClass().getResource("/music/guitar.wav").toExternalForm());
+    MediaPlayer player = new MediaPlayer(media);
 
-     @FXML
+    @FXML
     private ImageView car1;
 
     @FXML
@@ -58,6 +64,8 @@ public class SlideShowController {
         imageContainer.setOnMouseClicked(null);
         welcomeMessage.setVisible(false);
         
+        playMusic();
+        
         SequentialTransition slideShow = new SequentialTransition();
         
         ImageView[] cars = {car1, car2, car3,car4};
@@ -86,11 +94,18 @@ public class SlideShowController {
         slideShow.play();
         
         slideShow.setOnFinished(e -> {
+            player.stop();
+            
             try {
                 App.setRoot("welcome");
             } catch (IOException ex) {
                 System.getLogger(SlideShowController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
-        });
+        });   
+    }
+    
+    private void playMusic() {
+        player.setCycleCount(MediaPlayer.INDEFINITE);
+        player.play();
     }
 }

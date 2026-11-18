@@ -5,16 +5,52 @@ import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
 
 public class CarRaceController {
     @FXML
+    private Label animationSpeedLabel;
+
+    @FXML
+    private Slider animationSpeedSlider;
+
+    @FXML
+    private Pane car1;
+
+    @FXML
+    private Polygon car1Shape;
+
+    @FXML
+    private Pane car2;
+
+    @FXML
+    private Polygon car2Shape;
+
+    @FXML
+    private Pane car3;
+
+    @FXML
+    private Polygon car3Shape;
+
+    @FXML
+    private Pane car4;
+
+    @FXML
+    private Polygon car4Shape;
+
+    @FXML
     private ImageView carRaceFinishedSymbol;
+
+    @FXML
+    private GridPane carRaceLeaderboard;
 
     @FXML
     private Label congratulationLabel;
@@ -32,16 +68,25 @@ public class CarRaceController {
     private Label fourthPlaceNum;
 
     @FXML
+    private Button pauseButton;
+
+    @FXML
     private Label raceFinishedLabel;
-    
+
     @FXML
     private Label raceResultsLabel;
+
+    @FXML
+    private Button resetButton;
 
     @FXML
     private Label secondPlaceColor;
 
     @FXML
     private Label secondPlaceNum;
+
+    @FXML
+    private Button startButton;
 
     @FXML
     private Label thirdPlaceColor;
@@ -51,28 +96,7 @@ public class CarRaceController {
 
     @FXML
     private ImageView trophyLogo;
-    
-    @FXML
-    private GridPane carRaceLeaderboard;
-    
-    @FXML
-    private Label animationSpeedLabel;
 
-    @FXML
-    private Slider animationSpeedSlider;
-
-    @FXML
-    private Pane car1;
-
-    @FXML
-    private Pane car2;
-
-    @FXML
-    private Pane car3;
-
-    @FXML
-    private Pane car4;
-    
     private Car[] cars;
     private double rate = 1.0;
     ParallelTransition carRaceAnimation = new ParallelTransition();
@@ -124,6 +148,9 @@ public class CarRaceController {
         secondPlaceColor.setText("...");
         thirdPlaceColor.setText("...");
         fourthPlaceColor.setText("...");
+        
+        trophyLogo.setImage(null);
+        carRaceFinishedSymbol.setImage(null);
     }
 
     @FXML
@@ -172,6 +199,10 @@ public class CarRaceController {
     
     private void displayResults() {
         raceFinishedLabel.setText("Race Finished!");
+        trophyLogo.setImage(new Image(getClass().getResource(
+                "/images/TrophyImage.jpg").toExternalForm()));
+        carRaceFinishedSymbol.setImage(new Image(getClass().getResource(
+                "/images/RaceFinishedImage.jpg").toExternalForm()));
         
         // make copy of cars array to avoid changing original sorting
         Car[] sortedCars = Arrays.copyOf(cars, cars.length);

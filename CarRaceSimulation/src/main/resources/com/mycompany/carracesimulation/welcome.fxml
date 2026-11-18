@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.carracesimulation.WelcomeController">
    <center>
@@ -14,15 +14,21 @@
             <ImageView fx:id="car1" fitHeight="300.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="car2" fitHeight="300.0" fitWidth="500.0" layoutX="60.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="car3" fitHeight="300.0" fitWidth="500.0" layoutX="60.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="car4" fitHeight="300.0" fitWidth="500.0" layoutX="60.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="car4" fitHeight="300.0" fitWidth="597.0" layoutX="60.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </StackPane>
    </center>
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startRace" prefHeight="30.0" prefWidth="70.0" text="Start" />
-            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitRace" prefHeight="30.0" prefWidth="70.0" text="Exit" />
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startRace" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: green;" text="Start" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font></Button>
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitRace" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: red;" text="Exit" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font></Button>
          </children>
       </HBox>
    </bottom>
