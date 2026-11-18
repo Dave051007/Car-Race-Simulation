@@ -5,10 +5,10 @@
 
 <StackPane fx:id="imageContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#startSlideShow" prefHeight="456.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.carracesimulation.SlideShowController">
    <children>
-      <ImageView fx:id="car1" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="car2" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="car3" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="car4" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="welcomeMessage" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="car1" fitHeight="456.0" fitWidth="853.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="car2" fitHeight="456.0" fitWidth="853.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="car3" fitHeight="456.0" fitWidth="853.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="car4" fitHeight="456.0" fitWidth="853.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="welcomeMessage" fitHeight="456.0" fitWidth="853.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </StackPane>

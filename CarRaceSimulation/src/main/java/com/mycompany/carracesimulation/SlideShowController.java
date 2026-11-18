@@ -13,7 +13,7 @@ import javafx.util.Duration;
 
 public class SlideShowController {
     private String[] images = {
-        "/images/Car1Image.png",
+        "/images/Car1Image.jpg",
         "/images/Car2Image.jpg",
         "/images/Car3Image.jpg",
         "/images/Car4Image.jpg",
