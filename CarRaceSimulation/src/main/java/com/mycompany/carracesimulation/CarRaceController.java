@@ -127,6 +127,14 @@ public class CarRaceController {
 
     @FXML
     void resetAnim(ActionEvent event) {
+        startButton.setDisable(false);
+        pauseButton.setDisable(true);
+        resetButton.setDisable(true);
+        
+        // stop and clear previous animation
+        carRaceAnimation.stop();
+        carRaceAnimation.getChildren().clear();
+        
         carRaceAnimation.stop();
 
         carRaceAnimation.getChildren().clear();
@@ -155,9 +163,11 @@ public class CarRaceController {
 
     @FXML
     void startAnim(ActionEvent event) {
-        // stop and clear previous animation
-        carRaceAnimation.stop();
-        carRaceAnimation.getChildren().clear();
+        startButton.setDisable(true);
+        pauseButton.setDisable(false);
+        resetButton.setDisable(false);
+        
+        // simulate acceleration and decceleration
         carRaceAnimation.setInterpolator(Interpolator.EASE_BOTH);
         
         for (Car car : cars) {
