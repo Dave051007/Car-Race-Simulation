@@ -80,10 +80,10 @@ public class CarRaceController {
     @FXML
     void initialize() {
         cars = new Car[] {
-            new Car(Color.BLUE, 56, car1),
-            new Car(Color.YELLOW, 78, car2),
-            new Car(Color.RED, 11, car3),
-            new Car(Color.GREEN, 98, car4),
+            new Car(Color.BLUE, 62, car1),
+            new Car(Color.YELLOW, 83, car2),
+            new Car(Color.RED, 14, car3),
+            new Car(Color.GREEN, 27, car4),
         };
         
         animationSpeedLabel.textProperty().bind(
