@@ -1,14 +1,13 @@
 package com.mycompany.carracesimulation;
 
 import java.util.Arrays;
+import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -132,6 +131,7 @@ public class CarRaceController {
         // stop and clear previous animation
         carRaceAnimation.stop();
         carRaceAnimation.getChildren().clear();
+        carRaceAnimation.setInterpolator(Interpolator.EASE_BOTH);
         
         for (Car car : cars) {
             car.getPane().setTranslateX(0);

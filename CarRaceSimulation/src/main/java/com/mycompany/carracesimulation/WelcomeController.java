@@ -2,7 +2,6 @@ package com.mycompany.carracesimulation;
 
 import java.io.IOException;
 import javafx.animation.FadeTransition;
-import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
