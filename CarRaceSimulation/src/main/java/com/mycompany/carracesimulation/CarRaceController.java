@@ -14,10 +14,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 
 public class CarRaceController {
-    @FXML
+     @FXML
     private Label animationSpeedLabel;
 
     @FXML
@@ -27,10 +28,22 @@ public class CarRaceController {
     private Pane car1;
 
     @FXML
+    private Line car1Line1;
+
+    @FXML
+    private Line car1Line2;
+
+    @FXML
     private Polygon car1Shape;
 
     @FXML
     private Pane car2;
+
+    @FXML
+    private Line car2Line1;
+
+    @FXML
+    private Line car2Line2;
 
     @FXML
     private Polygon car2Shape;
@@ -39,10 +52,22 @@ public class CarRaceController {
     private Pane car3;
 
     @FXML
+    private Line car3Line1;
+
+    @FXML
+    private Line car3Line2;
+
+    @FXML
     private Polygon car3Shape;
 
     @FXML
     private Pane car4;
+
+    @FXML
+    private Line car4Line1;
+
+    @FXML
+    private Line car4Line2;
 
     @FXML
     private Polygon car4Shape;
@@ -102,6 +127,21 @@ public class CarRaceController {
     private double rate = 1.0;
     ParallelTransition carRaceAnimation = new ParallelTransition();
     
+    // car shape
+    Polygon carBody = new Polygon(
+            0, 25,
+            5, 15,
+            15, 12,
+            23, 3,
+            40, 3,
+            50, 12,
+            60, 15,
+            65, 23,
+            63, 28,
+            5, 28,
+            0, 25  
+    );
+    
     @FXML
     void initialize() {
         cars = new Car[] {
@@ -111,6 +151,16 @@ public class CarRaceController {
             new Car(Color.GREEN, 27, car4),
         };
         
+        car1Shape.getPoints().setAll(carBody.getPoints());
+        car2Shape.getPoints().setAll(carBody.getPoints());
+        car3Shape.getPoints().setAll(carBody.getPoints());
+        car4Shape.getPoints().setAll(carBody.getPoints());
+
+        car1Shape.setFill(Color.BLUE);
+        car2Shape.setFill(Color.YELLOW);
+        car3Shape.setFill(Color.RED);
+        car4Shape.setFill(Color.GREEN);
+
         animationSpeedLabel.textProperty().bind(
             animationSpeedSlider.valueProperty().asString("%.1fx")
         );

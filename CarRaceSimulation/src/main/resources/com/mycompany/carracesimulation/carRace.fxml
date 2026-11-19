@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -12,6 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
@@ -96,19 +98,55 @@
             <Line endX="621.0" endY="-1.52587890625E-5" layoutX="160.0" layoutY="177.0" startX="-94.0" startY="-1.52587890625E-5" stroke="WHITE" style="-fx-stroke-dash-array: 15;" />
             <Pane fx:id="car1" layoutX="66.0" layoutY="14.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Polygon fx:id="car1Shape" fill="BLUE" layoutX="48.0" layoutY="33.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon fx:id="car1Shape" fill="BLUE" layoutX="10.0" layoutY="5.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#3f454b" layoutX="25.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+                  <Circle fill="#3f454b" layoutX="60.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+                  <Line fx:id="car1Line1" endX="7.5" endY="16.60000228881836" layoutX="17.0" layoutY="22.0" startX="7.5" startY="-3.814697265625E-6" />
+                  <Line fx:id="car1Line2" endX="32.5" endY="5.000011444091797" layoutX="27.0" layoutY="32.0" startX="32.5" startY="-10.000003814697266" />
+                  <Text layoutX="29.0" layoutY="20.0" stroke="#00000033" strokeType="OUTSIDE" text="62" textAlignment="CENTER" wrappingWidth="26.93671417236328">
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Text>
                </children></Pane>
             <Pane fx:id="car4" layoutX="66.0" layoutY="182.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Polygon fx:id="car4Shape" fill="GREEN" layoutX="48.0" layoutY="33.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon fx:id="car4Shape" fill="GREEN" layoutX="10.0" layoutY="5.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#3f454b" layoutX="25.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+                  <Circle fill="#3f454b" layoutX="60.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+                  <Line fx:id="car4Line1" endX="7.5" endY="16.60000228881836" layoutX="17.0" layoutY="21.0" startX="7.5" startY="-3.814697265625E-6" />
+                  <Line endX="32.5" endY="5.000011444091797" layoutX="27.0" layoutY="32.0" startX="32.5" startY="-10.000003814697266" />
+                  <Text stroke="#00000033" strokeType="OUTSIDE" text="27" textAlignment="CENTER" wrappingWidth="26.93671417236328" x="29.0" y="20.0">
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Text>
                </children></Pane>
             <Pane fx:id="car3" layoutX="66.0" layoutY="126.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Polygon fx:id="car3Shape" fill="RED" layoutX="48.0" layoutY="33.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon fx:id="car3Shape" fill="RED" layoutX="10.0" layoutY="5.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#3f454b" layoutX="25.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+                  <Circle fill="#3f454b" layoutX="60.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+                  <Line fx:id="car3Line1" endX="7.5" endY="16.60000228881836" layoutX="17.0" layoutY="21.0" startX="7.999992370605469" startY="0.9999847412109375" />
+                  <Line fx:id="car3Line2" endX="32.5" endY="5.000011444091797" layoutX="28.0" layoutY="32.0" startX="32.5" startY="-10.000003814697266" />
+                  <Text stroke="#00000033" strokeType="OUTSIDE" text="14" textAlignment="CENTER" wrappingWidth="26.93671417236328" x="29.0" y="20.0">
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Text>
                </children></Pane>
-            <Pane fx:id="car2" layoutX="66.0" layoutY="70.0" prefHeight="41.0" prefWidth="90.0">
+            <Pane fx:id="car2" layoutX="66.0" layoutY="69.0" prefHeight="41.0" prefWidth="90.0">
                <children>
-                  <Polygon fx:id="car2Shape" fill="YELLOW" layoutX="48.0" layoutY="33.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon fx:id="car2Shape" fill="YELLOW" layoutX="10.0" layoutY="5.0" points="-26.600021362304688, 2.4000015258789062, 19.000015258789062, 2.4000015258789062, -2.6000213623046875, -28.79999351501465" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#3f454b" layoutX="25.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+                  <Circle fill="#3f454b" layoutX="60.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+                  <Line fx:id="car2Line1" endX="7.5" endY="16.60000228881836" layoutX="17.0" layoutY="21.0" startX="7.5" startY="-3.814697265625E-6" />
+                  <Line fx:id="car2Line2" endX="32.5" endY="5.000011444091797" layoutX="28.0" layoutY="32.0" startX="32.5" startY="-10.000003814697266" />
+                  <Text layoutX="29.0" layoutY="20.0" stroke="#00000033" strokeType="OUTSIDE" text="83" textAlignment="CENTER" wrappingWidth="26.93671417236328">
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Text>
                </children></Pane>
          </children>
       </Pane>
@@ -121,11 +159,11 @@
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="14.0" />
                </font></Button>
-            <Button fx:id="pauseButton" layoutX="145.0" layoutY="32.0" mnemonicParsing="false" onAction="#pauseAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: BLUE;" text="Pause" textFill="WHITE">
+            <Button fx:id="pauseButton" disable="true" layoutX="145.0" layoutY="32.0" mnemonicParsing="false" onAction="#pauseAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: BLUE;" text="Pause" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="14.0" />
                </font></Button>
-            <Button fx:id="resetButton" layoutX="248.0" layoutY="32.0" mnemonicParsing="false" onAction="#resetAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: RED;" text="Reset" textFill="WHITE">
+            <Button fx:id="resetButton" disable="true" layoutX="248.0" layoutY="32.0" mnemonicParsing="false" onAction="#resetAnim" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: RED;" text="Reset" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="14.0" />
                </font></Button>
@@ -230,7 +268,7 @@
                      </font></Label>
                </children>
             </GridPane>
-            <Label fx:id="raceResultsLabel" layoutX="2.0" layoutY="55.0" prefHeight="17.0" prefWidth="84.0" style="-fx-background-color: white;" text="...">
+            <Label fx:id="raceResultsLabel" layoutX="2.0" layoutY="55.0" prefHeight="17.0" prefWidth="184.0" style="-fx-background-color: white;" text="...">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font></Label>
