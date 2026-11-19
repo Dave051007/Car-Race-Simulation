@@ -10,6 +10,8 @@ import java.io.IOException;
 
 /**
  * JavaFX App
+ * Author: Lauren Dave Fermin
+ * GitHub: https://github.com/Dave051007/Car-Race-Simulation.git
  */
 public class App extends Application {
 

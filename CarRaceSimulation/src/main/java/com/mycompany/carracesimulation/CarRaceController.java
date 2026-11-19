@@ -76,10 +76,7 @@ public class CarRaceController {
 
     @FXML
     private ImageView carRaceFinishedSymbol;
-
-    @FXML
-    private GridPane carRaceLeaderboard;
-
+    
     @FXML
     private Label congratulationLabel;
 
