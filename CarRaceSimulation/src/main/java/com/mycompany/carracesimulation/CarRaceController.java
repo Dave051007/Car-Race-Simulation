@@ -4,6 +4,7 @@ import java.util.Arrays;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
+import javafx.util.Duration;
 
 public class CarRaceController {
      @FXML
@@ -142,6 +144,9 @@ public class CarRaceController {
             0, 25  
     );
     
+    // rotate animation of lines
+    private RotateTransition[] wheelSpins;
+    
     @FXML
     void initialize() {
         cars = new Car[] {
@@ -149,6 +154,13 @@ public class CarRaceController {
             new Car(Color.YELLOW, 83, car2),
             new Car(Color.RED, 14, car3),
             new Car(Color.GREEN, 27, car4),
+        };
+        
+        wheelSpins = new RotateTransition[] {
+            createSpin(car1Line1), createSpin(car1Line2),
+            createSpin(car2Line1), createSpin(car2Line2),
+            createSpin(car3Line1), createSpin(car3Line2),
+            createSpin(car4Line1), createSpin(car4Line2)
         };
         
         car1Shape.getPoints().setAll(carBody.getPoints());
@@ -168,6 +180,9 @@ public class CarRaceController {
         animationSpeedSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
            rate = newVal.doubleValue();
            carRaceAnimation.setRate(rate);
+           for (RotateTransition spin : wheelSpins) {
+               spin.setRate(rate);
+           }
         });
     }
 
@@ -175,9 +190,23 @@ public class CarRaceController {
     void pauseAnim(ActionEvent event) {
         if (carRaceAnimation.getStatus() == Animation.Status.RUNNING) {
             carRaceAnimation.pause();
+            
+            for (RotateTransition spin : wheelSpins) {
+                if (spin.getStatus() == Animation.Status.RUNNING) {
+                    spin.pause();
+                }
+            }
+            
             pauseButton.setText("Resume");
         } else {
             carRaceAnimation.play();
+
+            for (RotateTransition spin : wheelSpins) {
+                if (spin.getStatus() == Animation.Status.PAUSED) {
+                    spin.play();
+                }
+            }
+
             pauseButton.setText("Pause");
         }
     }
@@ -195,6 +224,11 @@ public class CarRaceController {
         carRaceAnimation.stop();
 
         carRaceAnimation.getChildren().clear();
+        
+        // stop wheel spin animation
+        for (RotateTransition spin : wheelSpins) {
+            spin.stop();
+        }
 
         for (Car car : cars) {
             car.getPane().setTranslateX(0);
@@ -224,9 +258,6 @@ public class CarRaceController {
         pauseButton.setDisable(false);
         resetButton.setDisable(false);
         
-        // simulate acceleration and decceleration
-        carRaceAnimation.setInterpolator(Interpolator.EASE_BOTH);
-        
         for (Car car : cars) {
             car.getPane().setTranslateX(0);
         }
@@ -253,11 +284,27 @@ public class CarRaceController {
             
             double speed = cars[i].getSpeed();
             cars[i].createAnimation(speed, X);
+
+            // stop the two wheels when this car finishes
+            int wheelIndex = i * 2;
+
+            cars[i].getAnimation().setOnFinished(e -> {
+                wheelSpins[wheelIndex].stop();
+                wheelSpins[wheelIndex + 1].stop();
+            });
+
             carRaceAnimation.getChildren().add(cars[i].getAnimation());
         }
         
+        // simulate acceleration and decceleration
+        carRaceAnimation.setInterpolator(Interpolator.EASE_BOTH);
+        
         carRaceAnimation.setRate(rate);
         carRaceAnimation.play();
+        
+        for (RotateTransition spin : wheelSpins) {
+            spin.play();
+        }
         
         carRaceAnimation.setOnFinished(e -> {
             displayResults();
@@ -265,6 +312,8 @@ public class CarRaceController {
     }
     
     private void displayResults() {
+        pauseButton.setDisable(true);
+        
         raceFinishedLabel.setText("Race Finished!");
         trophyLogo.setImage(new Image(getClass().getResource(
                 "/images/TrophyImage.jpg").toExternalForm()));
@@ -320,5 +369,21 @@ public class CarRaceController {
         }
 
         return "UNKNOWN";
+    }
+    
+    /**
+     * Creates spinning animation of line
+     * @param line the line that rotates 360 degrees
+     * @return a rotate transition animation
+     */
+    private RotateTransition createSpin(Line line) {
+        RotateTransition spin = new RotateTransition(
+            Duration.seconds(1), line);
+
+        spin.setByAngle(360);
+        spin.setCycleCount(Animation.INDEFINITE);
+        spin.setInterpolator(Interpolator.LINEAR);
+
+        return spin;
     }
 }

@@ -115,7 +115,7 @@
                   <Circle fill="#3f454b" layoutX="25.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
                   <Circle fill="#3f454b" layoutX="60.0" layoutY="30.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
                   <Line fx:id="car4Line1" endX="7.5" endY="16.60000228881836" layoutX="17.0" layoutY="21.0" startX="7.5" startY="-3.814697265625E-6" />
-                  <Line endX="32.5" endY="5.000011444091797" layoutX="27.0" layoutY="32.0" startX="32.5" startY="-10.000003814697266" />
+                  <Line fx:id="car4Line2" endX="32.5" endY="5.000011444091797" layoutX="27.0" layoutY="32.0" startX="32.5" startY="-10.000003814697266" />
                   <Text stroke="#00000033" strokeType="OUTSIDE" text="27" textAlignment="CENTER" wrappingWidth="26.93671417236328" x="29.0" y="20.0">
                      <effect>
                         <Bloom />
